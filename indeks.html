@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stig & Emilie — Bryllup</title>
+    <meta
+      name="description"
+      content="Informasjon og RSVP for bryllupet til Stig og Emilie."
+    />
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <canvas id="fireworks-canvas" aria-hidden="true"></canvas>
+    <header class="hero" id="top">
+      <nav class="navigation container" aria-label="Hovedmeny">
+        <a class="logo" href="#top" aria-label="Til toppen">
+          S<span>&</span>N
+        </a>
+
+        <button
+          class="menu-button"
+          type="button"
+          aria-label="Åpne meny"
+          aria-controls="menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links" id="menu">
+          <a href="#dagen">Dagen</a>
+          <a href="#praktisk">Praktisk info</a>
+          <a href="#rsvp">Svar på invitasjonen</a>
+        </div>
+      </nav>
+
+            <!-- Bytt ut bryllupsbilde.jpg med navnet på bildet ditt -->
+      <figure class="couple-photo">
+        <img
+          src="bilder/stig-og-emilie.jpg"
+          alt="Stig og Emilie"
+        />
+      </figure>
+
+      <div class="hero-content container">
+        <p class="eyebrow">Vi gifter oss</p>
+
+        <!-- NAVN -->
+        <h1>Stig <span>&</span> Emilie </h1>
+
+        <!-- DATO OG STED -->
+        <p class="hero-date">Lørdag 14. august 2027</p>
+
+        <div class="ornament" aria-hidden="true">❦</div>
+
+        <p class="hero-location">
+          Camp Nou<br />
+          Barcelona
+        </p>
+
+        <a class="button button-light" href="#rsvp">Svar på invitasjonen</a>
+
+        <div class="countdown" aria-label="Nedtelling til bryllupet">
+          <div class="countdown-item">
+            <strong id="days">0</strong>
+            <span>dager</span>
+          </div>
+
+          <div class="countdown-item">
+            <strong id="hours">0</strong>
+            <span>timer</span>
+          </div>
+
+          <div class="countdown-item">
+            <strong id="minutes">0</strong>
+            <span>minutter</span>
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#velkommen" aria-label="Gå til informasjon">
+        <span>Scroll ned</span>
+        <span class="scroll-arrow">↓</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="welcome section reveal" id="velkommen">
+        <div class="container narrow">
+          <p class="eyebrow dark">Kjære familie og venner</p>
+
+          <h2>Vi gleder oss til å feire med dere</h2>
+
+          <div class="ornament dark-ornament" aria-hidden="true">❦</div>
+
+          <p>
+            Endelig skal vi si ja til hverandre, og det hadde betydd enormt mye
+            for oss å ha dere med på dagen. Her finner dere praktisk
+            informasjon, program og et skjema for å svare på invitasjonen.
+          </p>
+
+          <p>
+            Vi håper på en dag fylt med latter, gode samtaler, fine taler og
+            dans langt utover kvelden.
+          </p>
+        </div>
+      </section>
+
+      <section class="schedule section section-soft reveal" id="dagen">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow dark">Bryllupsdagen</p>
+            <h2>Program</h2>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item">
+              <time datetime="2027-06-12T14:00">14:00</time>
+              <div>
+                <h3>Vielse</h3>
+                <p>Sagrada Famìlia</p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <time datetime="2027-06-12T15:00">15:00</time>
+              <div>
+                <h3>Bobler og gratulasjoner</h3>
+                <p>Vi samles til mingling, bilder og noe godt i glasset.</p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <time datetime="2027-06-12T17:30">17:30</time>
+              <div>
+                <h3>Middag</h3>
+                <p>Festmiddag med taler, god mat og hyggelig selskap.</p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <time datetime="2027-06-12T21:00">21:00</time>
+              <div>
+                <h3>Kake og fest</h3>
+                <p>Vi skjærer kaken — og dansegulvet åpner!</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="practical section reveal" id="praktisk">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow dark">Alt du trenger å vite</p>
+            <h2>Praktisk informasjon</h2>
+          </div>
+
+          <div class="info-grid">
+            <article class="info-card">
+              <div class="info-icon" aria-hidden="true">⌂</div>
+              <h3>Sted</h3>
+              <p>
+                Camp Nou<br />
+                Carrer d'Arístides Maillol 12<br />
+                08028 Barcelona, Spania
+              </p>
+
+              <!-- Bytt ut # med kartlenken -->
+              <a href="https://www.google.com/maps/place/Camp+Nou/@41.380833,2.122778,17z/data=!4m6!3m5!1s0x12a498f576297baf:0x44f65330fe1b04b9!8m2!3d41.380896!4d2.1228198!16zL20vMDFnZ2ps?entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Åpne i kart →</a>
+            </article>
+
+            <article class="info-card">
+              <div class="info-icon" aria-hidden="true">♢</div>
+              <h3>Dresskode</h3>
+              <p>
+                Pent antrekk / mørk dress.<br />
+                Vi ønsker at alle skal føle seg fine og komfortable.
+              </p>
+            </article>
+
+            <article class="info-card">
+              <div class="info-icon" aria-hidden="true">↗</div>
+              <h3>Transport</h3>
+              <p>
+                <!-- [Informasjon om parkering, kollektivtransport eller eventuell
+                felles transport.] --> Ville ikke kjørt bil om jeg var deg!
+              </p>
+            </article>
+
+            <article class="info-card">
+              <div class="info-icon" aria-hidden="true">♡</div>
+              <h3>Toastmaster</h3>
+              <p>
+                Har du spørsmål, eller ønsker du å holde tale? Ta kontakt med
+                Toastmasteren.
+              </p>
+
+              <!-- Bytt ut e-postadressen -->
+              <a href="mailto:toastmaster@eksempel.no">
+                toastmaster@eksempel.no →
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="quote-section section-soft reveal">
+        <div class="container narrow">
+          <blockquote>
+            <p>«Det beste med fremtiden er at vi møter den sammen.»</p>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="rsvp section reveal" id="rsvp">
+        <div class="container narrow">
+          <div class="section-heading">
+            <p class="eyebrow dark">Gi oss beskjed</p>
+            <h2>Svar på invitasjonen</h2>
+            <p class="section-intro">
+              Vi setter stor pris på om du svarer innen
+              <strong>1. januar 2027</strong>.
+            </p>
+          </div>
+
+          <form id="rsvp-form" novalidate>
+            <div class="form-group">
+              <label for="name">Fullt navn <span aria-hidden="true">*</span></label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                placeholder="Ola Nordmann"
+                required
+              />
+            </div>
+
+            <fieldset class="form-group">
+              <legend>Kommer du? <span aria-hidden="true">*</span></legend>
+
+              <div class="radio-group">
+                <label class="radio-label">
+                  <input type="radio" name="attendance" value="ja" required />
+                  <span>Ja, jeg kommer</span>
+                </label>
+
+                <label class="radio-label">
+                  <input type="radio" name="attendance" value="nei" />
+                  <span>Nei, jeg kan dessverre ikke komme</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div id="guest-fields" hidden>
+              <div class="form-group">
+            <label for="guestCount">Antall personer <span aria-hidden="true">*</span></label>
+            <input
+                id="guestCount"
+                name="guestCount"
+                type="number"
+                min="1"
+                max="20"
+                value="1"
+                inputmode="numeric"
+              />
+            </div>
+
+                <!-- JavaScript legger automatisk inn ett navnefelt per person her -->
+                <div id="guest-names-container"></div>
+
+
+
+              <div class="form-group">
+                <label for="allergies">Allergier eller matpreferanser</label>
+                <textarea
+                  id="allergies"
+                  name="allergies"
+                  rows="4"
+                  placeholder="For eksempel: vegetar, glutenfri eller nøtteallergi."
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Hilsen til brudeparet <span class="optional">(valgfritt)</span></label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Skriv gjerne en liten hilsen ..."
+              ></textarea>
+            </div>
+
+            <p class="privacy-note">
+              Opplysningene brukes kun til planleggingen av bryllupet.
+            </p>
+
+            <button class="button button-dark" type="submit">
+              Send svar
+            </button>
+
+            <p
+              id="form-status"
+              class="form-status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="footer-names">Stig <span>&</span> Emilie </p>
+        <p>Vi gleder oss til å feire med dere ♡</p>
+      </div>
+    </footer>
+  </body>
+</html>
