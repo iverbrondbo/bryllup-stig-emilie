@@ -1138,7 +1138,7 @@ textarea {
 .microsoft-form {
   display: block;
   width: 100%;
-  height: 850px;
+  height: 1250px;
 
   border: 0;
   background: white;
@@ -1151,3 +1151,16 @@ textarea {
   }
 }
 
+/*
+  På mobil skal informasjonskortene ligge ett under hverandre,
+  slik at de ikke gjør nettsiden bredere enn skjermen.
+*/
+@media (max-width: 650px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-card {
+    min-width: 0;
+  }
+}
