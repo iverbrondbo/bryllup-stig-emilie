@@ -231,89 +231,19 @@
             </p>
           </div>
 
-          <form id="rsvp-form" novalidate>
-            <div class="form-group">
-              <label for="name">Fullt navn <span aria-hidden="true">*</span></label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                autocomplete="name"
-                placeholder="Ola Nordmann"
-                required
-              />
-            </div>
-
-            <fieldset class="form-group">
-              <legend>Kommer du? <span aria-hidden="true">*</span></legend>
-
-              <div class="radio-group">
-                <label class="radio-label">
-                  <input type="radio" name="attendance" value="ja" required />
-                  <span>Ja, jeg kommer</span>
-                </label>
-
-                <label class="radio-label">
-                  <input type="radio" name="attendance" value="nei" />
-                  <span>Nei, jeg kan dessverre ikke komme</span>
-                </label>
-              </div>
-            </fieldset>
-
-            <div id="guest-fields" hidden>
-              <div class="form-group">
-            <label for="guestCount">Antall personer <span aria-hidden="true">*</span></label>
-            <input
-                id="guestCount"
-                name="guestCount"
-                type="number"
-                min="1"
-                max="20"
-                value="1"
-                inputmode="numeric"
-              />
-            </div>
-
-                <!-- JavaScript legger automatisk inn ett navnefelt per person her -->
-                <div id="guest-names-container"></div>
-
-
-
-              <div class="form-group">
-                <label for="allergies">Allergier eller matpreferanser</label>
-                <textarea
-                  id="allergies"
-                  name="allergies"
-                  rows="4"
-                  placeholder="For eksempel: vegetar, glutenfri eller nøtteallergi."
-                ></textarea>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Hilsen til brudeparet <span class="optional">(valgfritt)</span></label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                placeholder="Skriv gjerne en liten hilsen ..."
-              ></textarea>
-            </div>
-
-            <p class="privacy-note">
-              Opplysningene brukes kun til planleggingen av bryllupet.
-            </p>
-
-            <button class="button button-dark" type="submit">
-              Send svar
-            </button>
-
-            <p
-              id="form-status"
-              class="form-status"
-              aria-live="polite"
-            ></p>
-          </form>
+          <div class="forms-wrapper">
+            <iframe
+              class="microsoft-form"
+              src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAN__gyTKnZUQVJUU0MxRk5NWENWTVpHTDdYVTVST0hHRC4u&embed=true"
+              title="Svar på bryllupsinvitasjonen"
+              frameborder="0"
+              marginwidth="0"
+              marginheight="0"
+              allowfullscreen
+            >
+              Laster inn svarskjema ...
+            </iframe>
+        </div>
         </div>
       </section>
     </main>

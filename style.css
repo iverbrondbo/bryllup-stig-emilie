@@ -176,7 +176,7 @@ button {
   background:
     linear-gradient(
       135deg,
-      rgba(63, 39, 40, 0.66),
+      #3f2728a8,
       rgba(119, 72, 78, 0.44)
     ),
     url("bilder/hero.jpg") center / cover no-repeat,
@@ -191,7 +191,7 @@ button {
 .hero::before,
 .hero::after {
   position: absolute;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid #ffffff38;
   border-radius: 50%;
   content: "";
   pointer-events: none;
@@ -293,7 +293,7 @@ button {
   height: 45px;
   padding: 0.7rem;
 
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid #ffffff99;
   border-radius: 50%;
   background: transparent;
   color: var(--white);
@@ -1078,3 +1078,76 @@ textarea {
     display: none;
   }
 }
+
+/*
+  Microsoft Forms innebygd i RSVP-seksjonen.
+
+  Wrapperen gir skjemaet en pen ramme som passer
+  med resten av bryllupssiden.
+*/
+.forms-wrapper {
+  position: relative;
+  overflow: hidden;
+
+  padding: 0.6rem;
+
+  background: linear-gradient(135deg, #f7e5df, #fffaf6, #ead6b5);
+  border: 1px solid #d5b06e;
+  border-radius: 14px;
+  box-shadow:
+    0 18px 45px rgba(70, 42, 43, 0.14),
+    0 0 0 5px rgba(255, 250, 246, 0.9);
+}
+
+/* Små dekorative gullhjørner */
+.forms-wrapper::before,
+.forms-wrapper::after {
+  position: absolute;
+  z-index: 2;
+
+  width: 38px;
+  height: 38px;
+
+  border-color: #b68b46;
+  border-style: solid;
+  content: "";
+
+  pointer-events: none;
+}
+
+.forms-wrapper::before {
+  top: 0.9rem;
+  left: 0.9rem;
+  border-width: 2px 0 0 2px;
+}
+
+.forms-wrapper::after {
+  right: 0.9rem;
+  bottom: 0.9rem;
+  border-width: 0 2px 2px 0;
+}
+
+
+/*
+  Selve Microsoft Forms-vinduet.
+
+  Høyden må være stor nok til at alle spørsmålene
+  får plass. Juster 850px opp eller ned etter at
+  du har testet skjemaet på nettsiden.
+*/
+.microsoft-form {
+  display: block;
+  width: 100%;
+  height: 850px;
+
+  border: 0;
+  background: white;
+}
+
+/* Litt lavere høyde på mobil, om Forms tilpasser seg godt */
+@media (max-width: 650px) {
+  .microsoft-form {
+    height: 900px;
+  }
+}
+
