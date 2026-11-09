@@ -618,3 +618,55 @@ html { scrollbar-gutter: stable; }
 .paakrevd-note { margin: 0 0 var(--space-4); font-style: italic; font-size: 15px; line-height: 22px; color: var(--muted); }
 
 .paakrevd-note .paakrevd { margin-left: 0; }
+
+/* =====================================================
+   V9 – VIELSE I ØYER KIRKE, NYTT PROGRAM OG TYDELIG TAKK
+   ===================================================== */
+
+/* Stedskortet: dato øverst, så vielsen i kirken, så selskapet. Kortet er høyere,
+   så polaroiden og pila flyttes litt ned. */
+.kollasje { height: calc(940 * var(--u)); }
+.k-std { top: calc(172 * var(--u)); height: calc(410 * var(--u)); gap: 0; padding: calc(18 * var(--u)) calc(16 * var(--u)); }
+.k-polaroid { top: calc(612 * var(--u)); }
+.k-blomst { top: calc(610 * var(--u)); }
+.k-pil { top: calc(872 * var(--u)); }
+
+.k-std .ikon--ringer { width: calc(30 * var(--u)); margin-top: 0; }
+.k-std__dato  { font-size: calc(24 * var(--u)); margin-top: calc(2 * var(--u)); }
+.k-std__skille { width: calc(56 * var(--u)); height: 1px; background: var(--inset); margin: calc(12 * var(--u)) 0; }
+.k-std .ikon--kirke, .k-std .ikon--hus { width: calc(66 * var(--u)); margin-bottom: calc(4 * var(--u)); }
+.k-std__samme { margin-top: calc(2 * var(--u)); font-size: max(8px, calc(12 * var(--u))); letter-spacing: .18em; }
+.k-std__sted  { font-size: calc(23 * var(--u)); margin-top: 0; line-height: 1.15; }
+.k-std__by    { font-size: max(10px, calc(15 * var(--u))); line-height: 1.25; }
+.k-std__tid   { margin-top: calc(3 * var(--u)); font-weight: 600; font-style: normal; font-family: var(--font-caps); letter-spacing: .1em; color: var(--wine); }
+
+@media (max-width: 560px) {
+  .k-std { padding: calc(14 * var(--u)) calc(8 * var(--u)); }
+  .k-std__dato  { font-size: 15.5px; }
+  .k-std__samme { font-size: 9.5px; letter-spacing: .12em; }
+  .k-std__sted  { font-size: 16px; }
+  .k-std__by    { font-size: 12px; }
+  .k-std__tid   { font-size: 12.5px; }
+  .k-std__skille { margin: calc(9 * var(--u)) 0; }
+  .k-pil { top: calc(905 * var(--u)); }
+}
+
+/* Takk etter innsending: tydelig hake, bekreftelse og oppsummering */
+.thanks { padding: var(--space-2) 0 0; }
+.thanks:focus { outline: none; }
+.thanks__hake { display: grid; place-items: center; width: 64px; height: 64px; margin: 0 auto var(--space-3); border-radius: 50%; background: var(--forest); }
+.thanks__hake::after { content: ""; width: 14px; height: 26px; border-right: 3px solid var(--on-dark); border-bottom: 3px solid var(--on-dark); rotate: 45deg; translate: 0 -3px; }
+.thanks__script { font-size: clamp(42px, 9vw, 52px); line-height: 1.15; }
+.thanks__bekreft { font: 600 15px/20px var(--font-caps); letter-spacing: .16em; text-transform: uppercase; color: var(--forest); }
+.thanks__tekst { margin-top: var(--space-3); font-size: 21px; line-height: 30px; }
+.oppsummering { margin: var(--space-4) 0 0; padding: var(--space-3) var(--space-4); border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--raised); text-align: left; display: grid; grid-template-columns: max-content 1fr; gap: var(--space-2) var(--space-4); }
+.oppsummering dt { font: 600 13px/27px var(--font-caps); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.oppsummering dd { margin: 0; color: var(--ink); overflow-wrap: anywhere; white-space: pre-line; }
+.thanks__endre { margin-top: var(--space-4); font-size: 16px; line-height: 24px; font-style: italic; color: var(--muted); }
+.lenkeknapp { padding: 0; border: 0; background: none; font: inherit; color: var(--wine); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.thanks:not([hidden]) .thanks__hake { animation: pop 600ms cubic-bezier(.3, 1.6, .5, 1) both; }
+
+@media (max-width: 560px) {
+  .oppsummering { grid-template-columns: 1fr; gap: 0; padding: var(--space-3); }
+  .oppsummering dd + dt { margin-top: var(--space-2); }
+}

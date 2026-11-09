@@ -205,6 +205,41 @@ function setError(input, show) {
   if (err) err.hidden = !show;
 }
 
+// ---------- Takk og oppsummering etter innsending ----------
+// Svaret huskes i nettleseren, så gjesten ser at det er sendt også neste gang siden åpnes
+const SVAR_KEY = `rsvp-svar:${gjest.toLowerCase()}`;
+const oppsummering = document.getElementById('oppsummering');
+
+function visTakk(svar, rull = true) {
+  document.getElementById('thanks-bekreft').textContent = svar.flere ? 'Svaret deres er registrert' : 'Svaret ditt er registrert';
+  document.getElementById('thanks-text').textContent = svar.tekst;
+  oppsummering.replaceChildren(...svar.rader.flatMap(([k, v]) => {
+    const dt = document.createElement('dt'); dt.textContent = k;
+    const dd = document.createElement('dd'); dd.textContent = v;
+    return [dt, dd];
+  }));
+  form.hidden = true;
+  thanks.hidden = false;
+  thanks.focus({ preventScroll: true });
+  if (rull) document.getElementById('rsvp').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+}
+
+document.getElementById('endre-svar').addEventListener('click', () => {
+  thanks.hidden = true;
+  form.hidden = false;
+  const btn = form.querySelector('button[type="submit"]');
+  btn.disabled = false;
+  btn.textContent = 'Svar på invitasjon';
+  form.querySelector('input:not([type="hidden"]):not([hidden]), textarea')?.focus();
+});
+
+try {
+  const lagret = JSON.parse(localStorage.getItem(SVAR_KEY) || 'null');
+  if (lagret && Array.isArray(lagret.rader)) {
+    visTakk(lagret, false);
+  }
+} catch {}
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   formError.hidden = true;
@@ -244,16 +279,33 @@ form.addEventListener('submit', async (e) => {
       body: new URLSearchParams(new FormData(form)).toString(),
     });
     if (!res.ok) throw new Error(res.status);
+
+    // Oppsummering av svaret, så gjesten ser nøyaktig hva som ble sendt
+    const navn = gjest || name.value.trim();
+    const rader = [['Navn', navn]];
+    if (flere) {
+      const ikke = gjester.filter((n) => !deltakere.includes(n));
+      if (deltakere.length) rader.push(['Kommer', listeTekst(deltakere)]);
+      if (ikke.length) rader.push(['Kommer ikke', listeTekst(ikke)]);
+    } else {
+      rader.push(['Svar', yes ? 'Kommer' : 'Kommer ikke']);
+      if (yes && !gjester.length) rader.push(['Antall gjester', form.antall.value]);
+    }
+    if (yes && form.allergier.value.trim()) rader.push(['Allergier/matpreferanser', form.allergier.value.trim()]);
+    if (yes && form.sang.value.trim()) rader.push(['Sangønske', form.sang.value.trim()]);
+    if (form.hilsen.value.trim()) rader.push(['Hilsen/beskjed', form.hilsen.value.trim()]);
+
     const hvem = gjester.length ? listeTekst(deltakere) : name.value.trim().split(' ')[0];
-    document.getElementById('thanks-text').textContent = yes
+    const tekst = yes
       ? `Vi gleder oss til å se ${deltakere.length > 1 ? 'dere' : 'deg'}, ${hvem}!`
       : flere
         ? 'Så synd at dere ikke kan komme – takk for at dere ga beskjed.'
         : 'Så synd at du ikke kan komme – takk for at du ga beskjed.';
+    const svar = { rader, tekst, flere, tid: new Date().toISOString() };
+    try { localStorage.setItem(SVAR_KEY, JSON.stringify(svar)); } catch {}
+
     const r = btn.getBoundingClientRect();
-    form.hidden = true;
-    thanks.hidden = false;
-    thanks.focus();
+    visTakk(svar);
     if (yes) burst(r.left + r.width / 2, r.top, 50);
   } catch {
     formError.hidden = false;
