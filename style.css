@@ -618,3 +618,59 @@ html { scrollbar-gutter: stable; }
 .paakrevd-note { margin: 0 0 var(--space-4); font-style: italic; font-size: 15px; line-height: 22px; color: var(--muted); }
 
 .paakrevd-note .paakrevd { margin-left: 0; }
+
+/* =====================================================
+   V9 – VIELSE I ØYER KIRKE, NYTT PROGRAM OG TYDELIG TAKK
+   ===================================================== */
+
+/* Stedskortet: dato øverst, så vielsen i kirken, så selskapet. Kortet er større enn før,
+   og all tekst skalerer med kortet, så ingenting går utenfor rammen. Polaroiden og pila
+   flyttes ned for å gi plass. */
+.kollasje { height: calc(990 * var(--u)); }
+.k-std { left: calc(326 * var(--u)); top: calc(128 * var(--u)); width: calc(254 * var(--u)); height: calc(500 * var(--u)); rotate: 2.5deg; gap: 0; justify-content: center; padding: calc(26 * var(--u)) calc(26 * var(--u)); }
+.k-std > * { flex-shrink: 0; max-width: 100%; }
+.k-polaroid { top: calc(652 * var(--u)); }
+.k-blomst { top: calc(640 * var(--u)); }
+.k-pil { top: calc(916 * var(--u)); }
+
+.k-std .ikon--ringer { width: calc(38 * var(--u)); margin: 0; }
+.k-std__dato   { font: 600 calc(27 * var(--u))/1.2 var(--font-serif); margin-top: calc(4 * var(--u)); }
+.k-std__skille { width: calc(60 * var(--u)); height: 1px; background: var(--inset); margin: calc(16 * var(--u)) 0; }
+.k-std .ikon--kirke { width: calc(44 * var(--u)); margin-bottom: calc(6 * var(--u)); }
+.k-std .ikon--hus   { width: calc(84 * var(--u)); margin-bottom: calc(6 * var(--u)); }
+.k-std__samme  { margin: 0; font: 600 calc(13 * var(--u))/1.3 var(--font-caps); letter-spacing: .2em; text-transform: uppercase; color: var(--brown); }
+.k-std__sted   { font: 600 calc(26 * var(--u))/1.15 var(--font-serif); margin: 0; }
+.k-std__tid    { margin-top: calc(2 * var(--u)); font: italic 400 calc(19 * var(--u))/1.3 var(--font-serif); color: var(--wine); }
+.k-std__by     { margin-top: calc(4 * var(--u)); font: 400 calc(16 * var(--u))/1.3 var(--font-serif); text-wrap: balance; }
+
+@media (max-width: 560px) {
+  /* Litt større tekst på mobil, men aldri større enn kortet tåler */
+  .k-std { padding: calc(22 * var(--u)) calc(18 * var(--u)); }
+  .k-std__dato  { font-size: max(14px, calc(27 * var(--u))); }
+  .k-std__samme { font-size: max(8.5px, calc(13 * var(--u))); letter-spacing: .16em; }
+  .k-std__sted  { font-size: max(15px, calc(26 * var(--u))); }
+  .k-std__tid   { font-size: max(12px, calc(19 * var(--u))); }
+  .k-std__by    { font-size: max(11px, calc(16 * var(--u))); }
+  .k-std__skille { margin: calc(13 * var(--u)) 0; }
+  .k-pil { top: calc(930 * var(--u)); }
+}
+
+/* Takk etter innsending: tydelig hake, bekreftelse og oppsummering */
+.thanks { padding: var(--space-2) 0 0; }
+.thanks:focus { outline: none; }
+.thanks__hake { display: grid; place-items: center; width: 64px; height: 64px; margin: 0 auto var(--space-3); border-radius: 50%; background: var(--forest); }
+.thanks__hake::after { content: ""; width: 14px; height: 26px; border-right: 3px solid var(--on-dark); border-bottom: 3px solid var(--on-dark); rotate: 45deg; translate: 0 -3px; }
+.thanks__script { font-size: clamp(42px, 9vw, 52px); line-height: 1.15; }
+.thanks__bekreft { font: 600 15px/20px var(--font-caps); letter-spacing: .16em; text-transform: uppercase; color: var(--forest); }
+.thanks__tekst { margin-top: var(--space-3); font-size: 21px; line-height: 30px; }
+.oppsummering { margin: var(--space-4) 0 0; padding: var(--space-3) var(--space-4); border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--raised); text-align: left; display: grid; grid-template-columns: max-content 1fr; gap: var(--space-2) var(--space-4); }
+.oppsummering dt { font: 600 13px/27px var(--font-caps); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.oppsummering dd { margin: 0; color: var(--ink); overflow-wrap: anywhere; white-space: pre-line; }
+.thanks__endre { margin-top: var(--space-4); font-size: 16px; line-height: 24px; font-style: italic; color: var(--muted); }
+.lenkeknapp { padding: 0; border: 0; background: none; font: inherit; color: var(--wine); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.thanks:not([hidden]) .thanks__hake { animation: pop 600ms cubic-bezier(.3, 1.6, .5, 1) both; }
+
+@media (max-width: 560px) {
+  .oppsummering { grid-template-columns: 1fr; gap: 0; padding: var(--space-3); }
+  .oppsummering dd + dt { margin-top: var(--space-2); }
+}
