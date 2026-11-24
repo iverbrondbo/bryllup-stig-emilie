@@ -674,3 +674,6 @@ html { scrollbar-gutter: stable; }
   .oppsummering { grid-template-columns: 1fr; gap: 0; padding: var(--space-3); }
   .oppsummering dd + dt { margin-top: var(--space-2); }
 }
+
+/* Den burgunder blomsten flyttes ned i det tomme feltet mellom «Kommer du?»-kortet og polaroiden */
+.k-blomst { left: calc(242 * var(--u)); top: calc(735 * var(--u)); -webkit-mask-image: linear-gradient(#000 76%, transparent 96%); mask-image: linear-gradient(#000 76%, transparent 96%); }
